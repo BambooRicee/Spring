@@ -9,7 +9,7 @@
 <body>
 <h1 style="color:midnightblue">Добавьте новый сервис</h1>
 
-<form method="post" th:action="@{/addService}" th:object="${service}">
+<form method="post" th:action="@{/addServices}" th:object="${services}">
 <div class="label-input">
     <label for="type">Название:</label>
     <input type="text" id="type" th:field="*{type}" />
