@@ -1,4 +1,3 @@
-@charset "UTF-8";
 div.ingredient-group:nth-child(odd) {
 float: left;
 padding-right: 20px;
@@ -21,23 +20,153 @@ width: 50%;
  box-sizing: border-box;
 }
 span.validationError {
-color: red;
+color: skyblue;
+}
+.button {
+ 
+
+  display: block;
+  width: 150px;
+  padding: 10px;
+  background-color: skyblue;
+  color:midnightblue;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 1px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
 }
 
-.button {
+.main-button{
+  
+
   display: block;
   width: 200px;
   padding: 10px;
-  background-color: #ff6600;
-  color: white;
+  background-color: skyblue;
+  color: midnightblue;
   text-align: center;
   text-decoration: none;
-  border-radius: 5px;
-  margin-left: 0px;
+  font-size: 18px;
+  border-radius: 1px;
+  margin-left: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 .button:hover {
-  background-color: #ff8000;
+  background-color: skyblue;
 }
+body {
+    font-family: Arial, sans-serif;
+    padding: 10px; /* Добавляем отступы вокруг содержимого */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.list-container {
+    margin-bottom: 20px;
+}
+
+.select-box {
+    width: 17%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.select-button {
+    width: 10%;
+}
+
+.edit-button {
+    float: right;
+    width: 10%;
+}
+
+a.button {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  background-color: skyblue;
+  color: midnightblue;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 1px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.label-input {
+    width: 20%;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.label-input label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.label-input input {
+    width: calc(100% - 10px);
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+.validationError {
+    color: red;
+    font-size: 12px; /* Уменьшаем размер текста ошибок */
+}
+
+.button-container {
+    display: flex;
+    align-items: center; /* Выравниваем кнопки по вертикали */
+    margin-top: 20px; /* Добавляем отступ сверху между кнопками и остальным содержимым */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Объединяем границы ячеек */
+}
+
+th, td {
+    border: 1px solid lightsteelblue; /* Добавляем границу для каждой ячейки */
+    padding: 8px; /* Добавляем отступ вокруг содержимого ячейки */
+    text-align: left; /* Выравниваем текст по левому краю */
+}
+
+
+th {
+    background-color:skyblue; /* Цвет фона для заголовков */
+    color:midnightblue; /* Цвет текста для заголовков */
+}
+
+.actions {
+    white-space: nowrap; /* Предотвращаем перенос текста в кнопках */
+}
+
+.actions a {
+    margin-right: 5px; /* Добавляем отступ между кнопками */
+}
+
+

@@ -1,6 +1,8 @@
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/services
-    username: postgres
-    password: "12345"
+    generate-unique-name: false
+    name: onlinestore
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/
+    suffix: .html

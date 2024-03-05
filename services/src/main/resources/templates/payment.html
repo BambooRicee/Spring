@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Покупка сервиса</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<form method="post" th:if="${selectedServices}" action="#" th:action="@{/payment/submit}" th:object="${payment}" >
+    <input type="hidden" name="selectedServicesid" th:value="${selectedServices.id}">
+    <input type="hidden" name="typeId" th:value="${payment.typeId}" />
+<h1 style="color:midnightblue"><img th:src="@{/images/demospring.png}" width="80" height="80" align="middle"/>
+<a style="margin-left: 20px;">Покупка сервиса</a></h1>
+    <div class="grid">
+<div class="label-input">
+<div th:if="${selectedServices != null}">
+    <p style="color:midnightblue">Выбранный сервис: <span th:text="${selectedServices.type}"></span></p>
+</div>
+</div>
+<div class="label-input">
+
+        <label for="clientName">ФИО клиента:</label>
+        <input type="text" id="clientName" th:field="*{clientName}" required>
+        <span class="validationError" 
+        th:if="${#fields.hasErrors('clientName')}" 
+        th:errors="*{clientName}">Client Error</span><br>
+        
+        
+        <label for="paymentQuantity">Количество проданных сервисов:</label>
+        <input type="text" id="paymentQuantity" th:field="*{paymentQuantity}" required>
+        <span class="validationError" 
+        th:if="${#fields.hasErrors('paymentQuantity')}" 
+        th:errors="*{paymentQuantity}">quantity Error</span><br>
+        
+        <label for="paymentAmount">Сумма покупки:</label>
+        <input type="text" id="paymentAmount" th:field="*{paymentAmount}" required>
+        <span class="validationError" 
+        th:if="${#fields.hasErrors('paymentAmount')}" 
+        th:errors="*{paymentAmount}">Amount Error</span><br>
+        
+       </div>
+        <div class="button-container">
+            <button type="submit" class="main-button">Отправить</button>
+            <a href="/payment/all" class="main-button">Просмотреть продажи сервисов</a>
+        </div>
+ 
+    </form>
+    <div th:unless="${selectedServices != null}">
+
+        <h3 style="color:midnightblue">Для начала выберите сервис</h3>
+        <a href="/services" class="button">Выбрать</a>
+    </div>
+   
+</body>
+</html>

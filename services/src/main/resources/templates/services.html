@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Сервисы</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<h1 style="color:midnightblue">
+<a style="margin-left: 20px;">Выберите сервис</a></h1>
+
+<form method="post" action="/selectpayment">
+    <select name="servicesId" class='select-box'>
+        <option th:each="services : ${services}" th:value="${services.id}" th:text="${services.type}"></option>
+    </select>
+    <button type="submit" class="main-button" >Выбрать</button>
+    <a href="/allServices" class="main-button">Редактировать</a>
+</form>
+
+</body>
+</html>

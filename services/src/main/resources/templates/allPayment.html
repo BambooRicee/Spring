@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Учёт продаж</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+    <h1 style="color:midnightblue">Учёт продаж</h1>
+    <table>
+        <thead>
+            <tr>
+            <th>№</th>
+            <th>Сервис</th>
+                <th>Имя клиента</th>
+                <th>Количество проданных сервисов</th>
+                <th>Цена</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="payment : ${allPayment}">
+            <td th:text="${payment.id}"></td>
+                <td>
+        <span th:each="type : ${allServices}" th:if="${type.id == payment.typeId}" th:text="${type.type}"></span>
+    </td>
+
+                <td th:text="${payment.clientName}"></td>
+                <td th:text="${payment.paymentQuantity}"></td>
+                <td th:text="${payment.paymentAmount}"></td>
+                <td> 
+                    <a th:href="@{'/payment/edit/' + ${payment.id}}">Редактировать</a>
+                    <a th:href="@{'/payment/delete/' + ${payment.id}}">Удалить</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+   
+    <a href="/services" class='button'>Добавить сервис</a>
+    <a href="/" class='button'>Главная</a>
+  
+</body>
+</html>

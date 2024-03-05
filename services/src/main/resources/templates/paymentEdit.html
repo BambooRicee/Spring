@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование покупки</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+    <h1 style="color:midnightblue">Редактирование покупки</h1>
+    <form method="post" th:object="${payment}" th:action="@{'/payment/update/' + ${payment.id}}">
+    
+         <input type="hidden" th:field="*{id}" />
+        <div class="label-input">
+        <label for="typeId">Сервис:</label>
+        </div>
+        
+        <select id="typeId" name="typeId" class='select-box'>
+    <option th:each="services : ${allServices}" 
+            th:value="${services.id}" 
+            th:text="${services.type}" 
+            th:selected="${services.id == payment.typeId}">Сервис</option>
+</select>
+<div class="label-input">
+        <label for="clientName">ФИО клиента:</label>
+        <input type="text" id="clientName" th:field="*{clientName}" >
+        <span class="validationError" 
+        th:if="${#fields.hasErrors('clientName')}" 
+        th:errors="*{clientName}">Name Error</span><br>
+        </div>
+<div class="label-input">
+   <label for=" paymentQuantity">Количество проданных сервисов:</label>
+        <input type="text" id="paymentQuantity" th:field="*{paymentQuantity}" >
+        <span class="validationError" 
+        th:if="${#fields.hasErrors('paymentQuantity')}" 
+        th:errors="*{paymentQuantity}">Quantity Error</span><br>
+        </div>
+        <div class="label-input">
+        <label for="paymentAmount">Стоимость сервиса:</label>
+        <input type="text" id="paymentAmount" th:field="*{paymentAmount}" >
+        <span class="validationError" 
+        th:if="${#fields.hasErrors('paymentAmount')}" 
+        th:errors="*{paymentAmount}">Price Error</span><br>
+        </div>
+        
+        <div class="button-container">
+        <button type="submit" class='button'>Сохранить</button>
+        <a href="/" class='button'>Главная</a>
+        </div>
+    </form>
+
+</body>
+</html>
+
